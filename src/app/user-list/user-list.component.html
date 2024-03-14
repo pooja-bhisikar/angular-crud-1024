@@ -1,0 +1,42 @@
+<h3>
+    <strong class="textColor">User List</strong>
+</h3>
+
+<div class="container">
+    <div class="card bg-info cardSize">
+        <div class="formSize">
+            <table class="table table-striped formSize">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.role }}</td>
+                        <td>
+                            <button
+                                class="btn btn-primary"
+                                (click)="editUser(user)"
+                            >
+                                Edit
+                            </button>
+                            &nbsp;
+                            <button
+                                class="btn btn-danger"
+                                (click)="deleteUser(user.id)"
+                            >
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

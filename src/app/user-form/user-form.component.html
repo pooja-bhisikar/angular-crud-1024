@@ -1,0 +1,77 @@
+<h3>
+    <strong class="textColor">{{userFormText}}</strong>
+</h3>
+<div class="container">
+    <div class="card bg-info cardSize">
+        <div class="formSize ">
+
+            <form
+                [formGroup]="userForm"
+                (ngSubmit)="onSubmit()"
+            >
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input
+                        class="form-control"
+                        id="name"
+                        placeholder="Enter Name"
+                        type="text"
+                        formControlName="name"
+                    >
+                    <div
+                        *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)"
+                        class="text-danger"
+                    >
+                        <div *ngIf="f.name.errors?.required && (f.name.dirty || f.name.touched)">Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input
+                        class="form-control"
+                        id="email"
+                        placeholder="Enter email"
+                        type="email"
+                        formControlName="email"
+                    >
+                    <div
+                        *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)"
+                        class="text-danger"
+                    >
+                        <div *ngIf="f.email.errors?.required && (f.email.dirty || f.email.touched)">Email is required</div>
+                        <div *ngIf="f.email.errors?.email && (f.email.dirty || f.email.touched)">Invalid email format</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Role:</label>
+                    <select
+                        formControlName="role"
+                        class="form-control"
+                        id="role"
+                        placeholder="Select"
+                        type="text"
+                    >
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                    <div
+                        *ngIf="f.role.invalid && (f.role.dirty || f.role.touched)"
+                        class="text-danger"
+                    >
+                        Role is required
+                    </div>
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-default"
+                    [disabled]="userForm.invalid"
+                >
+                    Submit
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
