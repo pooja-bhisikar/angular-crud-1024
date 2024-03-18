@@ -52,7 +52,7 @@ export class UserFormComponent implements OnInit {
       } else {
         this.userService.addUser(user);
       }
-      this.router.navigate(['/users']); // Navigate back to user list after submission
+      this.router.navigate(['/users']);
     }
   }
 }
